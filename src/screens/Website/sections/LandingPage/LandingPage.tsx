@@ -1,6 +1,6 @@
 import { Button } from "../../../../components/ui/button";
 
-export const GlobalUsersSection = (): JSX.Element => {
+export const LandingPage = (): JSX.Element => {
   const buttons = [
     {
       text: "Download for Linux",
@@ -91,3 +91,4 @@ export const GlobalUsersSection = (): JSX.Element => {
     </section>
   );
 };
+

@@ -1,25 +1,25 @@
 import React from "react";
-import { AboutSection } from "./sections/AboutSection";
 import { ContributorsSection } from "./sections/ContributorsSection";
+import { HeaderSection } from "./sections/HeaderSection";
+import { AboutSection } from "./sections/AboutSection";
 import { DownloadSection } from "./sections/DownloadSection";
-import { FAQSection } from "./sections/FAQSection";
 import { FeaturesSection } from "./sections/FeaturesSection";
 import { FooterSection } from "./sections/FooterSection";
-import { GlobalUsersSection } from "./sections/GlobalUsersSection";
-import { OrganizationsSection } from "./sections/OrganizationsSection";
-import { ReleaseSection } from "./sections/ReleaseSection";
+import { LandingPage } from "./sections/LandingPage";
+import { FAQSection } from "./sections/FAQSection";
+import { GlobalUserSection } from "./sections/GlobalUserSection";
 
 export const Website = (): JSX.Element => {
   return (
     <div className="flex flex-col w-full bg-black">
-      <ContributorsSection />
-      <GlobalUsersSection />
-      <DownloadSection />
-      <FAQSection />
-      <FeaturesSection />
+      <HeaderSection />
+      <LandingPage />
       <AboutSection />
-      <ReleaseSection />
-      <OrganizationsSection />
+      <DownloadSection />
+      <FeaturesSection />
+      <ContributorsSection />
+      <GlobalUserSection />
+      <FAQSection />
       <FooterSection />
     </div>
   );

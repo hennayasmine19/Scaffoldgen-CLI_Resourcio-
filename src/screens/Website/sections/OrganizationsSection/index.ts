@@ -1,1 +1,0 @@
-export { OrganizationsSection } from "./OrganizationsSection";

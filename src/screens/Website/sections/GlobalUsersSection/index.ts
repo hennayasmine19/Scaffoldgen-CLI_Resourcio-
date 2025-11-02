@@ -1,1 +1,0 @@
-export { GlobalUsersSection } from "./GlobalUsersSection";

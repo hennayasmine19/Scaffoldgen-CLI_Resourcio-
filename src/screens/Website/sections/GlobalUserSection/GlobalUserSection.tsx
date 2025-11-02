@@ -81,7 +81,7 @@ const statsCards = [
   },
 ];
 
-export const ReleaseSection = (): JSX.Element => {
+export const GlobalUserSection = (): JSX.Element => {
   return (
     <section className="relative w-full h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-4 md:py-6 overflow-hidden bg-black">
       {/* Header Section */}
@@ -277,3 +277,4 @@ export const ReleaseSection = (): JSX.Element => {
     </section>
   );
 };
+

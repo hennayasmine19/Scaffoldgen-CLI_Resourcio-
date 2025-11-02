@@ -1,54 +1,59 @@
-import { SearchIcon } from "lucide-react";
 import React from "react";
-import { Input } from "../../../../components/ui/input";
+import { Card, CardContent } from "../../../../components/ui/card";
 
-const navigationItems = [
-  { label: "Downloads" },
-  { label: "Releases" },
-  { label: "Docs" },
-  { label: "Snippet Manager" },
+const contributors = [
+  {
+    name: "Name 1",
+    role: "Core Contributor",
+  },
+  {
+    name: "Name 2",
+    role: "Core Contributor",
+  },
+  {
+    name: "Name 3",
+    role: "Core Contributor",
+  },
+  {
+    name: "Name 4",
+    role: "Core Contributor",
+  },
 ];
 
 export const ContributorsSection = (): JSX.Element => {
   return (
-    <header className="flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-5 w-full">
-      <div className="flex items-center gap-[7px]">
-        <img className="w-[19px] h-[25px]" alt="s image" src="/s.png" />
-        <div className="[font-family:'Clash_Display',sans-serif] font-bold text-[#d6d2cd] text-[15.3px] tracking-[0] leading-[9.4px]">
-          ScaffoldGen
-          <br />
-          <span className="mt-1 inline-block">CLI</span>
+    <section className="flex flex-col items-center justify-center min-h-screen gap-2.5 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-16 md:py-20 lg:py-24 w-full">
+      <div className="w-full flex flex-col items-center gap-12">
+        <h2 className="w-full mt-[-1.00px] font-bold text-[#d6d2cd] text-[37px] tracking-[0.04px] leading-[27.9px] [font-family:'Inter',Helvetica] text-center">
+          Major Contributors
+        </h2>
+
+        <div className="flex items-center justify-center gap-8 w-full">
+          {contributors.map((contributor, index) => (
+            <Card
+              key={index}
+              className="w-[350px] h-[350px] rounded-lg bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] border-0 overflow-hidden"
+            >
+              <CardContent className="relative w-full h-full p-0">
+                <img
+                  className="absolute top-[76px] left-[calc(50.00%_-_12px)] w-6 h-6"
+                  alt="Gallery"
+                  src="/galley.png"
+                />
+                <div className="absolute top-[268px] left-[calc(50.00%_-_80px)] w-[165px] h-[60px] flex flex-col justify-end">
+                  <div className="h-[30px] self-center font-semibold text-white text-xl tracking-[-0.02px] leading-[30px] whitespace-nowrap [font-family:'Inter',Helvetica] text-center">
+                    {contributor.name}
+                  </div>
+                  <div className="w-[161px] h-[30px] [font-family:'Inter',Helvetica] font-medium text-[#969696] text-xl tracking-[-0.05px] leading-[30px] whitespace-nowrap">
+                    {contributor.role}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
-
-      <nav className="flex items-center gap-10">
-        <div className="flex items-center gap-[30px]">
-          <button className="[font-family:'Inter',Helvetica] font-normal text-[#d6d2cd] text-xl tracking-[0] leading-[15.1px] whitespace-nowrap hover:opacity-80 transition-opacity">
-            {navigationItems[0].label}
-          </button>
-
-          <button className="[font-family:'Inter',Helvetica] font-normal text-[#d6d2cd] text-xl tracking-[0] leading-[15.1px] whitespace-nowrap hover:opacity-80 transition-opacity">
-            {navigationItems[1].label}
-          </button>
-
-          <div className="relative w-[282px] h-[50px]">
-            <Input
-              type="text"
-              placeholder="SearchIcon..."
-              className="w-full h-full bg-[#0b0b0a] rounded border border-solid border-[#2b2b2b] [font-family:'Inter',Helvetica] font-normal text-[#969696] text-[18.1px] tracking-[0] leading-[13.6px] pl-[21px] pr-[45px] placeholder:text-[#969696]"
-            />
-            <SearchIcon className="absolute top-[calc(50%-9px)] right-[21px] w-[18px] h-[18px] text-[#969696] pointer-events-none" />
-          </div>
-
-          <button className="[font-family:'Inter',Helvetica] font-normal text-[#d6d2cd] text-xl tracking-[0] leading-[15.1px] whitespace-nowrap hover:opacity-80 transition-opacity">
-            {navigationItems[2].label}
-          </button>
-
-          <button className="[font-family:'Inter',Helvetica] font-normal text-[#d6d2cd] text-xl tracking-[0] leading-[15.1px] whitespace-nowrap hover:opacity-80 transition-opacity">
-            {navigationItems[3].label}
-          </button>
-        </div>
-      </nav>
-    </header>
+    </section>
   );
 };
+
