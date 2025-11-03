@@ -32,7 +32,7 @@ const backgroundPhones = [
     count: "25K",
     percentage: "Total Shipment",
     opacity: 1,
-    bgColor: "bg-[#e5e5e5]",
+    bgColor: "bg-[#b0b0b0]",
     zIndex: 10,
     rotate: "0deg",
     isCentral: true,
@@ -129,7 +129,7 @@ export const GlobalUserSection = (): JSX.Element => {
               >
                 {phone.isCentral ? (
                   // Central phone - light gray, most prominent
-                  <div className="absolute inset-0 rounded-[30px] bg-[#e5e5e5] border-[8px] border-black">
+                  <div className="absolute inset-0 rounded-[30px] bg-[#b0b0b0] border-[8px] border-black">
                     {/* Phone Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 md:w-32 h-5 md:h-6 bg-black rounded-b-2xl z-10"></div>
                     
@@ -137,7 +137,7 @@ export const GlobalUserSection = (): JSX.Element => {
                     <div className="absolute top-2 left-4 text-white text-xs font-medium z-10">9:41</div>
                     
                     {/* Screen content */}
-                    <div className="absolute inset-0 bg-gray-200 rounded-[28px] mt-2 mx-1"></div>
+                    <div className="absolute inset-0 bg-gray-400 rounded-[28px] mt-2 mx-1"></div>
                     
                     {/* Signal, WiFi, Battery Icons - Top Right */}
                     <div className="absolute top-2 right-4 flex items-center gap-1 z-20">
