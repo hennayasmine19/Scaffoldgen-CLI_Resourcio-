@@ -35,21 +35,21 @@ const faqData = [
 
 export const FAQSection = (): JSX.Element => {
   return (
-    <section className="flex flex-col items-center justify-center h-screen gap-4 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-4 md:py-6 lg:py-8 w-full overflow-hidden bg-black">
-      <div className="w-full max-w-[1520px] flex flex-col items-center gap-4 flex-shrink-0">
-        <h2 className="self-stretch [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[28px] md:text-[32px] text-center tracking-[0.04px] leading-tight animate-fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+    <section className="flex flex-col items-center justify-center min-h-screen gap-4 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-8 md:py-12 lg:py-16 w-full overflow-hidden bg-black">
+      <div className="w-full max-w-[1520px] flex flex-col items-center gap-4 sm:gap-6 lg:gap-8 flex-shrink-0">
+        <h2 className="self-stretch [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[24px] sm:text-[28px] md:text-[32px] text-center tracking-[0.04px] leading-tight animate-fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           Organizations
         </h2>
 
-        <div className="flex items-center justify-center gap-10 w-full">
-          <Card className="w-[350px] h-[150px] md:h-[180px] rounded-lg overflow-hidden bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] border-0 transition-all duration-500 hover:scale-105 hover:shadow-[0px_8px_30px_rgba(198,133,100,0.3)] cursor-pointer group relative animate-fade-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
+        <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-10 w-full">
+          <Card className="w-full max-w-[350px] h-[120px] sm:h-[150px] md:h-[180px] rounded-lg overflow-hidden bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] border-0 transition-all duration-500 hover:scale-105 hover:shadow-[0px_8px_30px_rgba(198,133,100,0.3)] cursor-pointer group relative animate-fade-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <CardContent className="relative w-full h-full p-0">
-              <div className="absolute top-[110px] md:top-[130px] left-[calc(50.00%_-_106px)] [font-family:'Inter',Helvetica] font-semibold text-[#d6d2cd] text-lg md:text-xl text-center tracking-[-0.05px] leading-[30px] whitespace-nowrap transition-all duration-300 group-hover:text-[#C68564]">
+              <div className="absolute top-[85px] sm:top-[110px] md:top-[130px] left-1/2 -translate-x-1/2 [font-family:'Inter',Helvetica] font-semibold text-[#d6d2cd] text-base sm:text-lg md:text-xl text-center tracking-[-0.05px] leading-[24px] sm:leading-[27px] md:leading-[30px] whitespace-nowrap transition-all duration-300 group-hover:text-[#C68564]">
                 Resourcio Community
               </div>
               <img
-                className="absolute top-[60px] md:top-[70px] left-[calc(50.00%_-_11px)] w-6 h-6 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                className="absolute top-[45px] sm:top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 w-5 h-5 sm:w-6 sm:h-6 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                 alt="Gallery"
                 src="/galley.png"
               />
@@ -58,13 +58,13 @@ export const FAQSection = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="w-full max-w-[1520px] flex flex-col items-center gap-4 flex-1 min-h-0">
-        <h2 className="self-stretch [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[28px] md:text-[32px] text-center tracking-[0.04px] leading-tight animate-fade-up" style={{ animationDelay: '0.3s', opacity: 0 }}>
+      <div className="w-full max-w-[1520px] flex flex-col items-center gap-4 sm:gap-6 lg:gap-8 flex-1 min-h-0">
+        <h2 className="self-stretch [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[24px] sm:text-[28px] md:text-[32px] text-center tracking-[0.04px] leading-tight animate-fade-up" style={{ animationDelay: '0.3s', opacity: 0 }}>
           FAQ
         </h2>
 
         <div className="flex flex-col items-start gap-4 md:gap-6 w-full flex-1 min-h-0">
-          <div className="grid grid-cols-3 gap-4 md:gap-6 w-full flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full flex-1">
             {faqData.slice(0, 3).map((faq, index) => (
               <Accordion
                 key={faq.id}
@@ -74,9 +74,9 @@ export const FAQSection = (): JSX.Element => {
                 style={{ animationDelay: `${0.4 + index * 0.1}s`, opacity: 0 }}
               >
                 <AccordionItem value={faq.id} className="border-0">
-                  <AccordionTrigger className="group w-full h-full min-h-[80px] md:min-h-[90px] rounded-lg shadow-[0px_4px_10px_#68686866] bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] px-4 md:px-[30px] py-3 md:py-[26px] hover:no-underline [&[data-state=open]>svg]:rotate-180 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0px_6px_20px_rgba(198,133,100,0.4)] hover:bg-[linear-gradient(90deg,rgba(11,11,10,1)_35%,rgba(55,29,15,1)_100%)] relative overflow-hidden">
+                  <AccordionTrigger className="group w-full h-full min-h-[70px] sm:min-h-[80px] md:min-h-[90px] rounded-lg shadow-[0px_4px_10px_#68686866] bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] px-3 sm:px-4 md:px-[30px] py-2 sm:py-3 md:py-[26px] hover:no-underline [&[data-state=open]>svg]:rotate-180 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0px_6px_20px_rgba(198,133,100,0.4)] hover:bg-[linear-gradient(90deg,rgba(11,11,10,1)_35%,rgba(55,29,15,1)_100%)] relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#C68564]/0 via-[#C68564]/10 to-[#C68564]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span className="relative z-10 [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[16px] md:text-[18px] lg:text-[20px] tracking-[0.11px] leading-tight text-left transition-colors duration-300 group-hover:text-[#C68564]">
+                    <span className="relative z-10 [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] tracking-[0.11px] leading-tight text-left transition-colors duration-300 group-hover:text-[#C68564]">
                       {faq.question}
                     </span>
                   </AccordionTrigger>
@@ -86,7 +86,7 @@ export const FAQSection = (): JSX.Element => {
             ))}
           </div>
 
-          <div className="grid grid-cols-3 gap-4 md:gap-6 w-full flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full flex-1">
             {faqData.slice(3, 6).map((faq, index) => (
               <Accordion
                 key={faq.id}
@@ -96,9 +96,9 @@ export const FAQSection = (): JSX.Element => {
                 style={{ animationDelay: `${0.7 + index * 0.1}s`, opacity: 0 }}
               >
                 <AccordionItem value={faq.id} className="border-0">
-                  <AccordionTrigger className="group w-full h-full min-h-[80px] md:min-h-[90px] rounded-lg shadow-[0px_4px_10px_#68686866] bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] px-4 md:px-[30px] py-3 md:py-[26px] hover:no-underline [&[data-state=open]>svg]:rotate-180 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0px_6px_20px_rgba(198,133,100,0.4)] hover:bg-[linear-gradient(90deg,rgba(11,11,10,1)_35%,rgba(55,29,15,1)_100%)] relative overflow-hidden">
+                  <AccordionTrigger className="group w-full h-full min-h-[70px] sm:min-h-[80px] md:min-h-[90px] rounded-lg shadow-[0px_4px_10px_#68686866] bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] px-3 sm:px-4 md:px-[30px] py-2 sm:py-3 md:py-[26px] hover:no-underline [&[data-state=open]>svg]:rotate-180 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0px_6px_20px_rgba(198,133,100,0.4)] hover:bg-[linear-gradient(90deg,rgba(11,11,10,1)_35%,rgba(55,29,15,1)_100%)] relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#C68564]/0 via-[#C68564]/10 to-[#C68564]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span className="relative z-10 [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[16px] md:text-[18px] lg:text-[20px] tracking-[0.11px] leading-tight text-left transition-colors duration-300 group-hover:text-[#C68564]">
+                    <span className="relative z-10 [font-family:'Inter',Helvetica] font-bold text-[#d6d2cd] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] tracking-[0.11px] leading-tight text-left transition-colors duration-300 group-hover:text-[#C68564]">
                       {faq.question}
                     </span>
                   </AccordionTrigger>

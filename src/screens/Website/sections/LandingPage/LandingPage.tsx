@@ -16,24 +16,24 @@ export const LandingPage = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col w-full items-center justify-center min-h-screen gap-9 pt-16 md:pt-24 lg:pt-[150px] pb-16 md:pb-24 lg:pb-[300px] px-4 sm:px-8 md:px-14 relative bg-black overflow-visible">
-      <div className="relative w-[310px] h-9 z-10 animate-fade-in">
-        <h1 className="absolute top-0 left-[calc(50.00%_-_155px)] w-[308px] [font-family:'Clash_Display',sans-serif] font-bold text-[#fa6b24] text-[47.2px] text-center tracking-[0] leading-[28.9px]">
+    <section className="flex flex-col w-full items-center justify-center min-h-screen gap-6 sm:gap-8 lg:gap-9 pt-16 md:pt-24 lg:pt-[150px] pb-16 md:pb-24 lg:pb-[300px] px-4 sm:px-8 md:px-14 relative bg-black overflow-visible">
+      <div className="relative w-full max-w-[310px] h-7 sm:h-8 lg:h-9 z-10 animate-fade-in">
+        <h1 className="absolute top-0 left-1/2 -translate-x-1/2 w-full [font-family:'Clash_Display',sans-serif] font-bold text-[#fa6b24] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[47.2px] text-center tracking-[0] leading-[28.9px]">
           ScaffoldGen
         </h1>
       </div>
 
-      <p className="relative w-[952px] max-w-full [font-family:'Inter',Helvetica] font-normal text-white text-xl text-center tracking-[0] leading-[27.8px] z-10 -mt-4 animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
+      <p className="relative w-full max-w-[952px] px-4 [font-family:'Inter',Helvetica] font-normal text-white text-base sm:text-lg lg:text-xl text-center tracking-[0] leading-[24px] sm:leading-[26px] lg:leading-[27.8px] z-10 -mt-2 sm:-mt-3 lg:-mt-4 animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
         A powerful command-line interface tool for developers, designed to
         streamline your workflow and boost your productivity
       </p>
 
-      <div className="inline-flex items-start gap-9 relative flex-[0_0_auto] z-10 animate-fade-in" style={{ animationDelay: "0.4s", opacity: 0 }}>
+      <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-9 relative flex-[0_0_auto] z-10 animate-fade-in w-full sm:w-auto px-4" style={{ animationDelay: "0.4s", opacity: 0 }}>
         {buttons.map((button, index) => (
           <Button
             key={index}
             variant={button.variant}
-            className={`h-auto px-[18px] py-3 rounded-lg [font-family:'Inter',Helvetica] font-bold text-lg tracking-[0] leading-[27px] whitespace-nowrap ${button.className}`}
+            className={`h-auto px-[18px] py-3 rounded-lg [font-family:'Inter',Helvetica] font-bold text-base sm:text-lg tracking-[0] leading-[27px] whitespace-nowrap w-full sm:w-auto ${button.className}`}
           >
             {button.text}
           </Button>

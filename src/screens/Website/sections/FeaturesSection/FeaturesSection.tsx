@@ -53,14 +53,14 @@ export const FeaturesSection = (): JSX.Element => {
     <section className="relative w-full bg-black min-h-screen py-8 md:py-12 lg:py-16 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] flex items-center justify-center overflow-hidden">
       <div className="w-full max-w-[1300px] mx-auto relative flex items-center justify-center">
         {/* Grid container for 2x2 layout - centered with horizontal spacing only */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-x-[180px] lg:gap-y-0 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-[180px] lg:gap-y-0 relative z-10">
           {featuresData.map((feature) => {
             const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
             return (
             <Card
               key={feature.id}
               ref={ref}
-              className={`relative h-[320px] border-0 rounded-2xl overflow-visible ${feature.gradientClass} transition-all duration-700 ease-out ${
+              className={`relative h-[280px] sm:h-[300px] lg:h-[320px] border-0 rounded-2xl overflow-visible ${feature.gradientClass} transition-all duration-700 ease-out ${
                 isVisible 
                   ? "opacity-100 translate-y-0" 
                   : "opacity-0 translate-y-10"
@@ -93,22 +93,22 @@ export const FeaturesSection = (): JSX.Element => {
                   ></div>
                 </div>
               )}
-              <CardContent className="flex items-center justify-center h-full p-5">
-                <div className="flex flex-col w-full max-w-[360px] items-center gap-6 px-4">
+              <CardContent className="flex items-center justify-center h-full p-4 sm:p-5">
+                <div className="flex flex-col w-full max-w-[360px] items-center gap-4 sm:gap-5 lg:gap-6 px-2 sm:px-4">
                   <div
-                    className={`relative w-[70px] h-[70px] ${feature.bgColor} rounded-[12px] overflow-hidden flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-6`}
+                    className={`relative w-[60px] h-[60px] sm:w-[65px] sm:h-[65px] lg:w-[70px] lg:h-[70px] ${feature.bgColor} rounded-[12px] overflow-hidden flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-6`}
                   >
                     <img
-                      className="w-[28px] h-[28px] object-contain transition-transform duration-300"
+                      className="w-[24px] h-[24px] sm:w-[26px] sm:h-[26px] lg:w-[28px] lg:h-[28px] object-contain transition-transform duration-300"
                       alt={feature.title}
                       src={feature.icon}
                     />
                   </div>
                   <div className="flex flex-col items-center gap-2 w-full">
-                    <h3 className="[font-family:'Inter',Helvetica] font-bold text-white text-[24px] text-center tracking-[-0.48px] leading-[31.2px]">
+                    <h3 className="[font-family:'Inter',Helvetica] font-bold text-white text-[18px] sm:text-[20px] lg:text-[24px] text-center tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[31.2px]">
                       {feature.title}
                     </h3>
-                    <p className="[font-family:'Inter',Helvetica] font-normal text-[#ffffff99] text-[18px] text-center tracking-[-0.36px] leading-[23.4px]">
+                    <p className="[font-family:'Inter',Helvetica] font-normal text-[#ffffff99] text-[14px] sm:text-[16px] lg:text-[18px] text-center tracking-[-0.36px] leading-[20px] sm:leading-[22px] lg:leading-[23.4px]">
                       {feature.description}
                     </p>
                   </div>

@@ -88,25 +88,25 @@ const statsCards = [
 
 export const GlobalUserSection = (): JSX.Element => {
   return (
-    <section className="relative w-full h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-4 md:py-6 overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[140px] py-8 md:py-12 lg:py-16 overflow-hidden bg-black">
       {/* Header Section */}
-      <div className="flex flex-col items-start gap-2 w-full max-w-[1520px] mb-4 z-10">
+      <div className="flex flex-col items-start gap-2 w-full max-w-[1520px] mb-4 sm:mb-6 lg:mb-8 z-10">
         <Badge
           variant="outline"
-          className="h-[38px] px-4 py-[9px] rounded-[50px] border-[#ffffff1a] bg-white/90 backdrop-blur-sm"
+          className="h-[32px] sm:h-[36px] lg:h-[38px] px-3 sm:px-4 py-[7px] sm:py-[8px] lg:py-[9px] rounded-[50px] border-[#ffffff1a] bg-white/90 backdrop-blur-sm"
         >
-          <span className="[font-family:'Urbanist',Helvetica] font-medium text-black text-base tracking-[-0.32px]">
+          <span className="[font-family:'Urbanist',Helvetica] font-medium text-black text-sm sm:text-base tracking-[-0.32px]">
             Our Solutions
           </span>
         </Badge>
-        <h2 className="[font-family:'Inter',Helvetica] font-bold text-white text-[28px] md:text-[32px] lg:text-[37px] tracking-[0.04px] leading-tight">
+        <h2 className="[font-family:'Inter',Helvetica] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[37px] tracking-[0.04px] leading-tight">
           Global Users
         </h2>
       </div>
 
       {/* Component Box Container - Dark grey rounded box containing all phones */}
-      <div className="relative w-full max-w-[1520px] flex-1 flex items-center justify-center my-4">
-        <div className="relative w-full h-[400px] md:h-[480px] lg:h-[520px] rounded-[40px] bg-[#2B2623] border border-gray-700/50 shadow-[0px_0px_80px_rgba(198,133,100,0.2)] overflow-hidden"
+      <div className="relative w-full max-w-[1520px] flex-1 flex items-center justify-center my-4 sm:my-6 lg:my-8">
+        <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[520px] rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] bg-[#2B2623] border border-gray-700/50 shadow-[0px_0px_80px_rgba(198,133,100,0.2)] overflow-hidden"
              style={{
                boxShadow: "0px 0px 100px rgba(198,133,100,0.25), inset 0 0 150px rgba(198,133,100,0.08), 0 8px 32px rgba(0,0,0,0.5)"
              }}>
@@ -120,7 +120,7 @@ export const GlobalUserSection = (): JSX.Element => {
             {backgroundPhones.map((phone, index) => (
               <div
                 key={index}
-                className={`absolute ${phone.top} ${phone.left || ''} ${phone.right || ''} w-[200px] sm:w-[240px] md:w-[280px] h-[400px] sm:h-[450px] md:h-[550px] rounded-[30px]`}
+                className={`absolute ${phone.top} ${phone.left || ''} ${phone.right || ''} w-[120px] sm:w-[160px] md:w-[200px] lg:w-[240px] xl:w-[280px] h-[240px] sm:h-[300px] md:h-[380px] lg:h-[450px] xl:h-[550px] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px]`}
                 style={{ 
                   opacity: phone.opacity,
                   zIndex: phone.zIndex,
