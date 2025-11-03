@@ -8,6 +8,7 @@ import { FooterSection } from "./sections/FooterSection";
 import { LandingPage } from "./sections/LandingPage";
 import { FAQSection } from "./sections/FAQSection";
 import { GlobalUserSection } from "./sections/GlobalUserSection";
+import { ImpactSection } from "./sections/ImpactSection";
 
 export const Website = (): JSX.Element => {
   return (
@@ -17,6 +18,7 @@ export const Website = (): JSX.Element => {
       <AboutSection />
       <DownloadSection />
       <FeaturesSection />
+      <ImpactSection />
       <ContributorsSection />
       <GlobalUserSection />
       <FAQSection />

@@ -12,6 +12,7 @@ const backgroundPhones = [
     zIndex: 1,
     rotate: "0deg",
     translateX: "0%",
+    icon: "/box.png",
   },
   {
     top: "top-[150px]",
@@ -19,10 +20,11 @@ const backgroundPhones = [
     count: "15K",
     percentage: "3.4%",
     opacity: 0.5,
-    bgColor: "bg-[#353535]",
+    bgColor: "bg-[rgba(171,169,169,0.6)]",
     zIndex: 2,
     rotate: "0deg",
     translateX: "0%",
+    icon: "/box.png",
   },
   {
     top: "top-[10px]",
@@ -35,6 +37,7 @@ const backgroundPhones = [
     rotate: "0deg",
     isCentral: true,
     translateX: "-50%",
+    icon: "/box.png",
   },
   {
     top: "top-[150px]",
@@ -42,10 +45,11 @@ const backgroundPhones = [
     count: "52K",
     percentage: "6.2%",
     opacity: 0.5,
-    bgColor: "bg-[#353535]",
+    bgColor: "bg-[rgba(171,169,169,0.6)]",
     zIndex: 2,
     rotate: "0deg",
     translateX: "0%",
+    icon: "/box.png",
   },
   {
     top: "top-[250px]",
@@ -57,6 +61,7 @@ const backgroundPhones = [
     zIndex: 1,
     rotate: "0deg",
     translateX: "0%",
+    icon: "/box.png",
   },
 ];
 
@@ -101,12 +106,13 @@ export const GlobalUserSection = (): JSX.Element => {
 
       {/* Component Box Container - Dark grey rounded box containing all phones */}
       <div className="relative w-full max-w-[1520px] flex-1 flex items-center justify-center my-4">
-        <div className="relative w-full h-[400px] md:h-[480px] lg:h-[520px] rounded-[40px] bg-[#1a1a1a] border border-gray-800/50 shadow-[0px_0px_80px_rgba(255,255,255,0.1)] overflow-hidden"
+        <div className="relative w-full h-[400px] md:h-[480px] lg:h-[520px] rounded-[40px] bg-[#2B2623] border border-gray-700/50 shadow-[0px_0px_80px_rgba(198,133,100,0.2)] overflow-hidden"
              style={{
-               boxShadow: "0px 0px 80px rgba(255,255,255,0.1), inset 0 0 100px rgba(255,255,255,0.02)"
+               boxShadow: "0px 0px 100px rgba(198,133,100,0.25), inset 0 0 150px rgba(198,133,100,0.08), 0 8px 32px rgba(0,0,0,0.5)"
              }}>
-          {/* Glowing effect on right side */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-transparent via-white/5 to-transparent pointer-events-none"></div>
+          {/* Shining/Glossy effect with brown */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#C68564]/15 via-transparent to-transparent pointer-events-none rounded-[40px]"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-transparent via-[#C68564]/12 to-transparent pointer-events-none rounded-[40px]"></div>
           
           {/* Container for all phones - positioned relative to component box */}
           <div className="relative w-full h-full overflow-hidden">
@@ -128,45 +134,76 @@ export const GlobalUserSection = (): JSX.Element => {
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 md:w-32 h-5 md:h-6 bg-black rounded-b-2xl z-10"></div>
                     
                     {/* Time - Top Left */}
-                    <div className="absolute top-2 left-4 text-black text-xs font-medium z-10">9:41</div>
-                    
-                    {/* Signal, WiFi, Battery Icons - Top Right */}
-                    <div className="absolute top-2 right-4 flex items-center gap-1 z-10">
-                      {/* Signal bars */}
-                      <div className="flex items-end gap-[2px]">
-                        <div className="w-[3px] h-[4px] bg-black/70 rounded-sm"></div>
-                        <div className="w-[3px] h-[6px] bg-black/70 rounded-sm"></div>
-                        <div className="w-[3px] h-[8px] bg-black/70 rounded-sm"></div>
-                        <div className="w-[3px] h-[10px] bg-black/70 rounded-sm"></div>
-                      </div>
-                      {/* WiFi icon */}
-                      <div className="w-3 h-3 border border-black/70 rounded-full"></div>
-                      {/* Battery icon */}
-                      <div className="relative w-[18px] h-[9px] border border-black/70 rounded-sm">
-                        <div className="absolute top-[2px] left-[2px] w-[12px] h-[5px] bg-black/70 rounded-sm"></div>
-                        <div className="absolute top-[3px] right-[-2px] w-[2px] h-[3px] bg-black/70 rounded-r-sm"></div>
-                      </div>
-                    </div>
+                    <div className="absolute top-2 left-4 text-white text-xs font-medium z-10">9:41</div>
                     
                     {/* Screen content */}
                     <div className="absolute inset-0 bg-gray-200 rounded-[28px] mt-2 mx-1"></div>
                     
+                    {/* Signal, WiFi, Battery Icons - Top Right */}
+                    <div className="absolute top-2 right-4 flex items-center gap-1 z-20">
+                      {/* Signal bars */}
+                      <div className="flex items-end gap-[2px]">
+                        <div className="w-[3px] h-[4px] bg-white rounded-sm"></div>
+                        <div className="w-[3px] h-[6px] bg-white rounded-sm"></div>
+                        <div className="w-[3px] h-[8px] bg-white rounded-sm"></div>
+                        <div className="w-[3px] h-[10px] bg-white rounded-sm"></div>
+                      </div>
+                      {/* WiFi icon */}
+                      <div className="relative w-3 h-3">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 0C3.24 0 0.9 1.5 0 3.6L6 10.8L12 3.6C11.1 1.5 8.76 0 6 0Z" fill="white"/>
+                          <circle cx="6" cy="8.4" r="1.2" fill="white"/>
+                        </svg>
+                      </div>
+                      {/* Battery icon */}
+                      <div className="relative w-[18px] h-[9px] border border-white rounded-sm">
+                        <div className="absolute top-[2px] left-[2px] w-[12px] h-[5px] bg-white rounded-sm"></div>
+                        <div className="absolute top-[3px] right-[-2px] w-[2px] h-[3px] bg-white rounded-r-sm"></div>
+                      </div>
+                    </div>
+                    
                     {/* Stats Box inside phone (if needed, though cards overlay this) */}
                     {phone.count && (
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-gray-300 rounded-[12px] p-4 z-10 w-[180px] sm:w-[220px] md:w-[260px] h-[100px] sm:h-[120px] md:h-[140px] relative">
-                        <div className="absolute top-4 left-4 text-black text-lg md:text-xl font-bold leading-tight">
-                          {phone.count}
+                      <div className={`absolute ${phone.isCentral ? 'top-[55%]' : 'top-1/2'} left-1/2 -translate-x-1/2 ${phone.isCentral ? '-translate-y-[10%]' : '-translate-y-1/2'} border border-white rounded-[12px] p-4 pb-8 z-10 w-[180px] sm:w-[220px] md:w-[260px] ${phone.isCentral ? 'h-[260px] sm:h-[280px] md:h-[300px]' : 'h-[100px] sm:h-[120px] md:h-[140px]'} relative`}>
+                        {/* Oval circle with image above count */}
+                        <div className={`absolute ${phone.isCentral ? 'top-8 md:top-10' : 'top-2'} left-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center overflow-hidden`}>
+                          <img
+                            className="w-5 h-5 md:w-6 md:h-6 object-contain"
+                            alt="Icon"
+                            src={phone.icon || "/box.png"}
+                          />
                         </div>
-                        <div className="absolute top-4 right-4 flex items-center gap-1">
+                        <div className={`absolute ${phone.isCentral ? 'top-16 md:top-20' : 'top-12 md:top-14'} left-4 flex flex-col gap-1`}>
+                          <div className="text-white text-2xl md:text-3xl font-bold leading-tight">
+                            {phone.count}
+                          </div>
+                          {phone.isCentral && (
+                            <div className="text-white text-xs md:text-sm font-medium">
+                              {phone.percentage}
+                            </div>
+                          )}
+                        </div>
+                        <div className={`absolute ${phone.isCentral ? 'top-8' : 'top-4'} right-4 flex items-center gap-1`}>
                           <img
                             className="w-3 h-3"
                             alt="Trend up"
                             src="/a2.png"
                           />
-                          <span className="text-[#2baf47] text-xs font-medium">
-                            {phone.percentage}
+                          <span className="text-xs font-medium" style={{ color: '#808080' }}>
+                            {phone.isCentral ? "5.2%" : phone.percentage}
                           </span>
                         </div>
+                      </div>
+                    )}
+                    
+                    {/* Graph at bottom of phone screen - only for central phone */}
+                    {phone.isCentral && (
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[190px] sm:w-[230px] md:w-[270px] z-10">
+                        <img
+                          className="w-full h-auto max-h-16 md:max-h-20 object-cover"
+                          alt="Graph"
+                          src="/w1.png"
+                        />
                       </div>
                     )}
                   </div>
@@ -189,7 +226,12 @@ export const GlobalUserSection = (): JSX.Element => {
                         <div className="w-[3px] h-[10px] bg-white/60 rounded-sm"></div>
                       </div>
                       {/* WiFi icon */}
-                      <div className="w-3 h-3 border border-white/60 rounded-full"></div>
+                      <div className="relative w-3 h-3">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 0C3.24 0 0.9 1.5 0 3.6L6 10.8L12 3.6C11.1 1.5 8.76 0 6 0Z" fill="white" fillOpacity="0.6"/>
+                          <circle cx="6" cy="8.4" r="1.2" fill="white" fillOpacity="0.6"/>
+                        </svg>
+                      </div>
                       {/* Battery icon */}
                       <div className="relative w-[18px] h-[9px] border border-white/60 rounded-sm">
                         <div className="absolute top-[2px] left-[2px] w-[12px] h-[5px] bg-white/60 rounded-sm"></div>
@@ -202,8 +244,16 @@ export const GlobalUserSection = (): JSX.Element => {
                     
                     {/* Stats Box inside phone */}
                     {phone.count && (
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-gray-400 rounded-[12px] p-4 z-10 w-[200px] sm:w-[220px] md:w-[260px] h-[100px] sm:h-[120px] md:h-[140px] relative">
-                        <div className="absolute top-4 left-4 text-white text-lg md:text-xl font-bold leading-tight">
+                      <div className={`absolute ${index === 0 || index === 1 || index === 3 || index === 4 ? 'top-[59%]' : 'top-1/2'} left-1/2 -translate-x-1/2 -translate-y-1/2 border border-gray-400 rounded-[12px] p-4 z-10 w-[200px] sm:w-[220px] md:w-[260px] h-[100px] sm:h-[120px] md:h-[140px] relative`}>
+                        {/* Oval circle with image above count */}
+                        <div className="absolute top-2 left-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                          <img
+                            className="w-5 h-5 md:w-6 md:h-6 object-contain"
+                            alt="Icon"
+                            src={phone.icon || "/box.png"}
+                          />
+                        </div>
+                        <div className="absolute top-12 md:top-14 left-4 text-white text-2xl md:text-3xl font-bold leading-tight">
                           {phone.count}
                         </div>
                         <div className="absolute top-4 right-4 flex items-center gap-1">
@@ -212,7 +262,7 @@ export const GlobalUserSection = (): JSX.Element => {
                             alt="Trend up"
                             src="/a2.png"
                           />
-                          <span className="text-[#2baf47] text-xs font-medium">
+                          <span className="text-xs font-medium" style={{ color: '#808080' }}>
                             {phone.percentage}
                           </span>
                         </div>

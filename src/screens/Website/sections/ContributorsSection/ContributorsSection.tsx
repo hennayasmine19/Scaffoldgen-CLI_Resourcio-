@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { useScrollReveal } from "../../../../hooks/useScrollReveal";
 
 const contributors = [
   {
@@ -29,10 +30,18 @@ export const ContributorsSection = (): JSX.Element => {
         </h2>
 
         <div className="flex items-center justify-center gap-8 w-full">
-          {contributors.map((contributor, index) => (
+          {contributors.map((contributor, index) => {
+            const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
+            return (
             <Card
               key={index}
-              className="w-[350px] h-[350px] rounded-lg bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] border-0 overflow-hidden"
+              ref={ref}
+              className={`w-[350px] h-[350px] rounded-lg bg-[linear-gradient(90deg,rgba(11,11,10,1)_45%,rgba(55,29,15,1)_100%)] border-0 overflow-hidden transition-all duration-700 ease-out ${
+                isVisible 
+                  ? "opacity-100 translate-y-0 scale-100" 
+                  : "opacity-0 translate-y-10 scale-95"
+              } hover:scale-105 hover:shadow-[0_0_30px_rgba(250,107,36,0.3)]`}
+              style={{ transitionDelay: `${index * 0.15}s` }}
             >
               <CardContent className="relative w-full h-full p-0">
                 <img
@@ -50,7 +59,8 @@ export const ContributorsSection = (): JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

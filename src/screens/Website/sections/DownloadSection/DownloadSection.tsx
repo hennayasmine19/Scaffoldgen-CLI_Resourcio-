@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../../../../components/ui/button";
+import { useScrollReveal } from "../../../../hooks/useScrollReveal";
 
 const downloadSections = [
   {
@@ -23,8 +24,19 @@ export const DownloadSection = (): JSX.Element => {
       <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-[#fa6b24]/20 via-[#fa6b24]/10 to-transparent pointer-events-none"></div>
       
       <div className="relative flex items-start justify-between gap-8 w-full z-10">
-        {downloadSections.map((section, index) => (
-          <div key={index} className="flex flex-col gap-14 flex-1">
+        {downloadSections.map((section, index) => {
+          const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
+          return (
+          <div 
+            key={index} 
+            ref={ref}
+            className={`flex flex-col gap-14 flex-1 transition-all duration-700 ease-out ${
+              isVisible 
+                ? "opacity-100 translate-y-0" 
+                : "opacity-0 translate-y-10"
+            }`}
+            style={{ transitionDelay: `${index * 0.2}s` }}
+          >
             <div className="flex flex-col gap-6">
               <h2 className="[font-family:'Inter',Helvetica] font-bold text-white text-[37px] tracking-[0] leading-[27.9px]">
                 {section.title}
@@ -33,13 +45,14 @@ export const DownloadSection = (): JSX.Element => {
                 {section.description}
               </p>
             </div>
-            <Button className="inline-flex items-center justify-center gap-2.5 px-[18px] py-3 bg-[#fa6b24] rounded-lg hover:bg-[#fa6b24]/90 w-fit h-auto">
+            <Button className="inline-flex items-center justify-center gap-2.5 px-[18px] py-3 bg-[#fa6b24] rounded-lg hover:bg-[#fa6b24]/90 w-fit h-auto transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(250,107,36,0.5)]">
               <span className="[font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[27px] whitespace-nowrap">
                 {section.buttonText}
               </span>
             </Button>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
