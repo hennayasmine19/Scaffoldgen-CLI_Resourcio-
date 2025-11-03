@@ -48,49 +48,140 @@ export const LandingPage = (): JSX.Element => {
           preserveAspectRatio="xMidYMax meet"
         >
           <defs>
-            {/* Linear gradient for arc stroke: bright yellow-white at center, deep orange at edges */}
+            {/* Elegant linear gradient for arc stroke */}
             <linearGradient id="arcStrokeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#ff7b00" /> {/* Deep orange at start */}
-              <stop offset="45%" stopColor="#ff9d2e" /> {/* Transitioning */}
-              <stop offset="50%" stopColor="#FFFFF0" /> {/* Bright yellow-white at center */}
-              <stop offset="55%" stopColor="#ff9d2e" /> {/* Transitioning */}
-              <stop offset="100%" stopColor="#ff7b00" /> {/* Deep orange at end */}
+              <stop offset="0%" stopColor="#ff7b00" />
+              <stop offset="45%" stopColor="#ff8c42" />
+              <stop offset="50%" stopColor="#ff9d2e" />
+              <stop offset="55%" stopColor="#ff8c42" />
+              <stop offset="100%" stopColor="#ff7b00" />
             </linearGradient>
-            {/* Soft feathered glow filter - desktop - wider spread */}
-            <filter id="arcGlowFilterDesktop" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="30" result="glow1" />
-              <feGaussianBlur stdDeviation="20" result="glow2" />
-              <feGaussianBlur stdDeviation="10" result="glow3" />
+            
+            {/* Radial gradient for glow fade - center to edges */}
+            <radialGradient id="glowFadeGradient" cx="50%" cy="0%" r="80%">
+              <stop offset="0%" stopColor="white" stopOpacity="1"/>
+              <stop offset="25%" stopColor="white" stopOpacity="0.9"/>
+              <stop offset="50%" stopColor="white" stopOpacity="0.5"/>
+              <stop offset="75%" stopColor="white" stopOpacity="0.2"/>
+              <stop offset="100%" stopColor="white" stopOpacity="0"/>
+            </radialGradient>
+            
+            {/* Downward center glow */}
+            <filter id="centerDownwardGlowDesktop" x="-150%" y="-100%" width="400%" height="300%" colorInterpolationFilters="sRGB">
+              <feGaussianBlur stdDeviation="28" in="SourceGraphic" result="blur"/>
+              <feOffset in="blur" dx="0" dy="16" result="offset"/>
+            </filter>
+            <filter id="centerDownwardGlowMobile" x="-150%" y="-100%" width="400%" height="300%" colorInterpolationFilters="sRGB">
+              <feGaussianBlur stdDeviation="20" in="SourceGraphic" result="blur"/>
+              <feOffset in="blur" dx="0" dy="12" result="offset"/>
+            </filter>
+            
+            {/* Powerful glow filter - Desktop - creates visible halo */}
+            <filter id="powerfulGlowDesktop" x="-400%" y="-400%" width="900%" height="900%" colorInterpolationFilters="sRGB">
+              <feGaussianBlur stdDeviation="100" in="SourceGraphic" result="blur1"/>
+              <feGaussianBlur stdDeviation="70" in="SourceGraphic" result="blur2"/>
+              <feGaussianBlur stdDeviation="45" in="SourceGraphic" result="blur3"/>
+              <feGaussianBlur stdDeviation="25" in="SourceGraphic" result="blur4"/>
+              <feGaussianBlur stdDeviation="12" in="SourceGraphic" result="blur5"/>
               <feMerge>
-                <feMergeNode in="glow1" />
-                <feMergeNode in="glow2" />
-                <feMergeNode in="glow3" />
-                <feMergeNode in="SourceGraphic" />
+                <feMergeNode in="blur1" opacity="0.4"/>
+                <feMergeNode in="blur2" opacity="0.5"/>
+                <feMergeNode in="blur3" opacity="0.6"/>
+                <feMergeNode in="blur4" opacity="0.7"/>
+                <feMergeNode in="blur5" opacity="0.8"/>
+                <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
-            {/* Softer glow filter - mobile */}
-            <filter id="arcGlowFilterMobile" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="20" result="glow1" />
-              <feGaussianBlur stdDeviation="12" result="glow2" />
-              <feGaussianBlur stdDeviation="6" result="glow3" />
+            
+            {/* Powerful glow filter - Mobile */}
+            <filter id="powerfulGlowMobile" x="-400%" y="-400%" width="900%" height="900%" colorInterpolationFilters="sRGB">
+              <feGaussianBlur stdDeviation="60" in="SourceGraphic" result="blur1"/>
+              <feGaussianBlur stdDeviation="40" in="SourceGraphic" result="blur2"/>
+              <feGaussianBlur stdDeviation="25" in="SourceGraphic" result="blur3"/>
+              <feGaussianBlur stdDeviation="15" in="SourceGraphic" result="blur4"/>
+              <feGaussianBlur stdDeviation="8" in="SourceGraphic" result="blur5"/>
               <feMerge>
-                <feMergeNode in="glow1" />
-                <feMergeNode in="glow2" />
-                <feMergeNode in="glow3" />
-                <feMergeNode in="SourceGraphic" />
+                <feMergeNode in="blur1" opacity="0.4"/>
+                <feMergeNode in="blur2" opacity="0.5"/>
+                <feMergeNode in="blur3" opacity="0.6"/>
+                <feMergeNode in="blur4" opacity="0.7"/>
+                <feMergeNode in="blur5" opacity="0.8"/>
+                <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
           </defs>
-          {/* Arc stroke line with glow - single glowing stroke only */}
+          
+          {/* Elegant Professional Arc - Desktop */}
+          {/* Glow halo layers behind arc - create elegant fade */}
+          <g className="hidden md:block">
+            {/* Outer glow - soft fade at edges */}
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff7b00"
+              strokeWidth="8"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.25"
+              filter="url(#powerfulGlowDesktop)"
+            />
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff8c42"
+              strokeWidth="10"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.35"
+              filter="url(#powerfulGlowDesktop)"
+            />
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff8c42"
+              strokeWidth="12"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.45"
+              filter="url(#powerfulGlowDesktop)"
+            />
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff9d2e"
+              strokeWidth="14"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.55"
+              filter="url(#powerfulGlowDesktop)"
+            />
+            {/* Center intense glow - darkest/strongest */}
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff9d2e"
+              strokeWidth="20"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.85"
+              filter="url(#powerfulGlowDesktop)"
+            />
+          </g>
+          
+          {/* Main elegant arc stroke - varying thickness - Desktop */}
+          {/* Edge sections - thinner */}
           <path
             d="M 50 280 Q 500 50 950 280"
             stroke="url(#arcStrokeGradient)"
-            strokeWidth="12"
+            strokeWidth="4"
             fill="none"
             strokeLinecap="round"
             className="hidden md:block"
-            filter="url(#arcGlowFilterDesktop)"
-            opacity="1"
+            opacity="0.9"
+          />
+          <path
+            d="M 50 280 Q 500 50 950 280"
+            stroke="url(#arcStrokeGradient)"
+            strokeWidth="6"
+            fill="none"
+            strokeLinecap="round"
+            className="hidden md:block"
+            opacity="0.95"
           />
           <path
             d="M 50 280 Q 500 50 950 280"
@@ -98,8 +189,118 @@ export const LandingPage = (): JSX.Element => {
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
+            className="hidden md:block"
+            opacity="1"
+          />
+          {/* Center - thickest and brightest */}
+          <path
+            d="M 50 280 Q 500 50 950 280"
+            stroke="url(#arcStrokeGradient)"
+            strokeWidth="14"
+            fill="none"
+            strokeLinecap="round"
+            className="hidden md:block"
+            opacity="1"
+          />
+          
+          {/* Elegant Professional Arc - Mobile */}
+          <g className="block md:hidden">
+            {/* Glow halo layers */}
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff7b00"
+              strokeWidth="5"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.25"
+              filter="url(#powerfulGlowMobile)"
+            />
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff8c42"
+              strokeWidth="7"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.35"
+              filter="url(#powerfulGlowMobile)"
+            />
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff8c42"
+              strokeWidth="9"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.45"
+              filter="url(#powerfulGlowMobile)"
+            />
+            {/* Center intense glow */}
+            <path
+              d="M 50 280 Q 500 50 950 280"
+              stroke="#ff9d2e"
+              strokeWidth="14"
+              fill="none"
+              strokeLinecap="round"
+              opacity="0.75"
+              filter="url(#powerfulGlowMobile)"
+            />
+          </g>
+          
+          {/* Main arc stroke - Mobile */}
+          <path
+            d="M 50 280 Q 500 50 950 280"
+            stroke="url(#arcStrokeGradient)"
+            strokeWidth="3"
+            fill="none"
+            strokeLinecap="round"
             className="block md:hidden"
-            filter="url(#arcGlowFilterMobile)"
+            opacity="0.9"
+          />
+          <path
+            d="M 50 280 Q 500 50 950 280"
+            stroke="url(#arcStrokeGradient)"
+            strokeWidth="5"
+            fill="none"
+            strokeLinecap="round"
+            className="block md:hidden"
+            opacity="0.95"
+          />
+          <path
+            d="M 50 280 Q 500 50 950 280"
+            stroke="url(#arcStrokeGradient)"
+            strokeWidth="7"
+            fill="none"
+            strokeLinecap="round"
+            className="block md:hidden"
+            opacity="1"
+          />
+          {/* Center - thickest */}
+          <path
+            d="M 50 280 Q 500 50 950 280"
+            stroke="url(#arcStrokeGradient)"
+            strokeWidth="11"
+            fill="none"
+            strokeLinecap="round"
+            className="block md:hidden"
+            opacity="1"
+          />
+          
+          {/* Center point glow spreading downward */}
+          <circle
+            cx="500"
+            cy="50"
+            r="4"
+            fill="#ff9d2e"
+            className="hidden md:block"
+            filter="url(#centerDownwardGlowDesktop)"
+            opacity="1"
+          />
+          <circle
+            cx="500"
+            cy="50"
+            r="3"
+            fill="#ff9d2e"
+            className="block md:hidden"
+            filter="url(#centerDownwardGlowMobile)"
             opacity="1"
           />
         </svg>
